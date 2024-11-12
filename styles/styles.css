@@ -4,17 +4,22 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f4fa;
     margin: 0;
+    background-image: url('/images/type1.jpg');
+    background-size: cover;
 }
 
 .planner {
     width: 300px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 h2 {
@@ -22,13 +27,73 @@ h2 {
     margin-bottom: 20px;
 }
 
-.mood, .date, .section {
+.mood-icons {
+    margin-top: 10px;
+}
+.days-of-week {
+    display: flex;
+    gap: 10px;
     margin-bottom: 15px;
 }
 
+.days-of-week {
+    position: absolute;
+    top: 160px; /* Place above the date */
+    right: 200px;
+    display: flex;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.days-of-week button:hover {
+    background-color: #ff7f7f;
+    color: white;
+}
+
+.days-of-week button.active {
+    background-color: #ff7f7f;
+    color: white;
+    border: 1px solid #ff4d4d;
+}
+.date {
+    position: absolute;
+    top: 220px; /* Adjust to sit below the Days of the Week */
+    right: 200px;
+    font-size: 16px;
+    color: #333;
+    background-color: #ff7f7f;
+    padding: 6px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+/* Style for the Mood section */
+.mood {
+    position: absolute;
+    bottom: 700px; 
+    left: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 10px;
+    text-align: center;
+}
+
+
+/* Mood Icons styling */
 .mood-icons {
     font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 5px;
 }
+
 
 input[type="date"],
 textarea,
@@ -53,7 +118,7 @@ button:hover {
     background-color: #ff6161;
 }
 
-#todo-list {
+#todo-list, #completed-list {
     list-style: none;
     padding: 0;
 }
@@ -63,6 +128,53 @@ button:hover {
     justify-content: space-between;
     background: #f9f9f9;
     padding: 5px 10px;
-    margin-top: 5px;
+    margin-top: 16px;
     border-radius: 5px;
 }
+.section-TODo {
+    position: absolute;
+    bottom: 350px;
+    left: 30px;   
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px; 
+    height: 300px;
+}
+.section-completed {
+    position: absolute;
+    bottom: 80px;
+    left: 30px;   
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    height: 200px; 
+}
+#todo-list {
+    list-style: disc; 
+    padding: 0;
+    margin-left: 20px;  
+}
+
+#completed-list {
+    list-style: decimal; 
+    padding:0;
+    margin-left: 20px;  
+}
+
+#todo-list li, #completed-list li {
+    padding: 5px 10px;
+    margin-top: 10px;
+    background: #ffe0e1;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#completed-list li {
+    background: #ffe0e1; 
+}
+
