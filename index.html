@@ -9,19 +9,28 @@
 <body>
     <div class="planner">
         <h2>Daily Planner</h2>
+    </div>
         <div class="mood">
             <h3>Mood</h3>
             <div class="mood-icons">
                 😊 😐 😢
             </div>
+          </div>
+          <div class="days-of-week">
+            <button onclick="selectDay('Sunday')">S</button>
+            <button onclick="selectDay('Monday')">M</button>
+            <button onclick="selectDay('Tuesday')">T</button>
+            <button onclick="selectDay('Wednesday')">W</button>
+            <button onclick="selectDay('Thursday')">T</button>
+            <button onclick="selectDay('Friday')">F</button>
+            <button onclick="selectDay('Sartuday')">S</button>
         </div>
-        
         <div class="date">
             <label for="date">Date:</label>
             <input type="date" id="date">
         </div>
 
-        <div class="section">
+        <div class="section-TODo">
             <h3>To-Do List</h3>
             <ul id="todo-list">
                 <!-- List items will go here -->
@@ -30,22 +39,23 @@
             <button onclick="addTask()">Add Task</button>
         </div>
 
-        <div class="section">
-            <h3>Wish List</h3>
-            <textarea id="wish-list" placeholder="Write your wishes here..."></textarea>
-        </div>
-
-        <div class="section">
-            <h3>Notes</h3>
-            <textarea id="notes" placeholder="Additional notes..."></textarea>
-        </div>
-
-        <div class="section">
-            <h3>I'm Grateful For</h3>
-            <textarea id="gratitude" placeholder="Things you're grateful for..."></textarea>
+        <div class="section-completed">
+            <h3>Completed Tasks</h3>
+            <ul id="completed-list">
+                <!-- Completed tasks will go here -->
+            </ul>
         </div>
     </div>
+    <div class="wish-list">
+        <h3>Wish List</h3>
+        <textarea id="wish-list" placeholder="Write your wishes here..."></textarea>
+    </div>
+    <div class="grateful">
+        <h3>I'm Grateful For</h3>
+        <textarea id="gratitude" placeholder="Things you're grateful for..."></textarea>
+    </div>
+</div>
 
-    <script src="/Javascript/script.js"></script>
+    <script src="/javascript/script.js"></script>
 </body>
 </html>
