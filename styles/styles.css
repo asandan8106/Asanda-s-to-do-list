@@ -5,16 +5,11 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-image: url('/images/type1.jpg');
-    background-size: cover;
+    background-image: url('/images/type4.jpg');
+    background-size:cover;
 }
 
 .planner {
-    width: 300px;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     position: absolute;
     top: 20px;
@@ -26,10 +21,11 @@ h2 {
     color: #ff7f7f;
     margin-bottom: 20px;
 }
-
-.mood-icons {
-    margin-top: 10px;
+h2{
+   
+    text-align: center;
 }
+
 .days-of-week {
     display: flex;
     gap: 10px;
@@ -39,7 +35,7 @@ h2 {
 .days-of-week {
     position: absolute;
     top: 160px; /* Place above the date */
-    right: 200px;
+    right: 650px;
     display: flex;
     gap: 10px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -49,7 +45,7 @@ h2 {
 }
 
 .days-of-week button:hover {
-    background-color: #ff7f7f;
+    background-color: burlywood;
     color: white;
 }
 
@@ -61,7 +57,7 @@ h2 {
 .date {
     position: absolute;
     top: 220px; /* Adjust to sit below the Days of the Week */
-    right: 200px;
+    right: 600px;
     font-size: 16px;
     color: #333;
     background-color: #ff7f7f;
@@ -73,14 +69,8 @@ h2 {
 /* Style for the Mood section */
 .mood {
     position: absolute;
-    bottom: 700px; 
-    left: 30px;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    height: 10px;
+    top: 60px; 
+    left: 500x;
     text-align: center;
 }
 
@@ -115,7 +105,7 @@ button {
 }
 
 button:hover {
-    background-color: #ff6161;
+    background-color:#ffe0e1;
 }
 
 #todo-list, #completed-list {
@@ -131,28 +121,18 @@ button:hover {
     margin-top: 16px;
     border-radius: 5px;
 }
-.section-TODo {
+.Task{
     position: absolute;
-    bottom: 350px;
-    left: 30px;   
+    bottom: 100px;
+    right: 490px;   
     background: rgba(255, 255, 255, 0.9);
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 400px; 
-    height: 300px;
+    width: 580px; 
+    height: 350px;
 }
-.section-completed {
-    position: absolute;
-    bottom: 80px;
-    left: 30px;   
-    background: rgba(255, 255, 255, 0.9);
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 400px;
-    height: 200px; 
-}
+
 #todo-list {
     list-style: disc; 
     padding: 0;
@@ -177,4 +157,3 @@ button:hover {
 #completed-list li {
     background: #ffe0e1; 
 }
-
