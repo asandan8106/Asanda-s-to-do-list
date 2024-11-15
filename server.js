@@ -9,11 +9,12 @@ app.get('/', (req, res) => {
 });
 
 const PORT = 3001;
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
+
 app.use(express.static('public'));
 app.get('/',(req,res)=>{
     res.render(index)
 })
 
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});

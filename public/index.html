@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Planner To-Do List</title>
+    <link rel="stylesheet" href="/public/styles.css">
+    <style>
+     /* General Styling */
+/* General Styling */
+body {
+    font-family: Arial, sans-serif, cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    background-image: url('/images/');
+    background-size: cover;
+}
+
+h2 {
+    color: #ff7f7f;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+h1 {
+    text-align: left;
+    color: #ff7f7f;
+    font-size: 24px;
+}
+
+.mood {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.mood-icons {
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.mood-icons span {
+    transition: transform 0.2s;
+}
+
+.mood-icons span.selected {
+    transform: scale(1.2);
+    color: goldenrod;
+}
+
+.days-of-week {
+    position: absolute;
+    top: 160px;
+    right: 650px;
+    display: flex;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#date-time-weather {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#time-display,
+#weather-display {
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 18px;
+    text-align: center;
+}
+
+#time-display {
+    background-color: rgba(255, 240, 245, 0.9);
+    color: #ff6161;
+}
+
+#weather-display {
+    background-color: rgba(240, 248, 255, 0.9);
+    color: #007BFF;
+}
+
+.todo-container-wrapper {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    height: 80vh;
+    padding: 20px;
+    overflow: hidden;
+    flex-direction: row;
+}
+
+.todo-container,
+.task-form {
+    background-color: #fff8f0;
+    border: 2px dashed #ff7f7f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.task-form label {
+    display: block;
+    font-size: 10px;
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+
+.task-form input,
+.task-form select {
+    width: 500px;
+    padding: 3px;
+    margin-bottom: 2px;
+    border: 2px solid  #ff7f7f;
+    border-radius: 5px;
+    background-color: #fdfdfd;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.task-form input:focus,
+.task-form select:focus {
+    border-color: #ff6161;
+    outline: none;
+    background-color: #fff8f0;
+}
+
+.task-form button {
+    width: 200px;
+    padding: 7px;
+    background-color: #ff6161;
+    color: white;
+    font-size: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-form button:hover {
+    background-color: #ff3b3b;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.todo-container {
+    width: 65%;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.task-form {
+    width: 500px;
+}
+
+.notes {
+    width: 100%;
+    padding: 20px;
+    background-color: #fff8f0;
+    border-top: 2px dashed  #ff7f7f;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    width: 1700px;
+    height: 10px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #fdfdfd;
+    font-size: 14px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    resize: vertical;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #ff6161;
+    outline: none;
+    background-color: #fff8f0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #ff6161;
+    color: white;
+}
+
+.priority {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.priority.high {
+    color: red;
+}
+
+.priority.medium {
+    color: orange;
+}
+
+.priority.low {
+    color: green;
+}
+
+
+/* Responsive styling for mobile */
+@media (max-width: 768px) {
+    .todo-container-wrapper {
+        flex-direction: column;
+    }
+    .todo-container,
+    .task-form {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div id="date-time-weather">
+        <div id="time-display">
+            <p id="current-date-time"></p>
+        </div>
+        <div id="weather-display">
+            <p id="current-weather">Weather: Loading...</p>
+        </div>
+    </div>
+
+    <div class="planner">
+        <h2>Daily Planner</h2>
+    </div>
+        <div class="mood">
+            <h4>Mood</h4>
+            <div class="mood-icons">
+                <span id="happy" onclick="selectMood('happy')">😊</span>
+                <span id="neutral" onclick="selectMood('neutral')">😐</span>
+                <span id="sad" onclick="selectMood('sad')">😢</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="days-of-week">
+        <button onclick="selectDay('Sunday')">S</button>
+        <button onclick="selectDay('Monday')">M</button>
+        <button onclick="selectDay('Tuesday')">T</button>
+        <button onclick="selectDay('Wednesday')">W</button>
+        <button onclick="selectDay('Thursday')">T</button>
+        <button onclick="selectDay('Friday')">F</button>
+        <button onclick="selectDay('Saturday')">S</button>
+    </div>
+
+    <div class="todo-container-wrapper">
+        <!-- To-Do Table -->
+        <div class="todo-container">
+            <h1>TO-DO LIST</h1>
+            <table id="todo-table">
+                <thead>
+                    <tr>
+                        <th>Due Date</th>
+                        <th>Priority</th>
+                        <th>What</th>
+                        <th>Who</th>
+                        <th>In Progress</th>
+                        <th>Done</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="todo-body"></tbody>
+            </table>
+        </div>
+
+        <!-- Add Task Form -->
+        <div class="task-form">
+            <h2>Add Task</h2>
+            <form id="add-task-form">
+                <label for="due-date">Due Date:</label>
+                <input type="date" id="due-date" required>
+
+                <label for="priority">Priority:</label>
+                <select id="priority" required>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+
+                <label for="task">Task:</label>
+                <input type="text" id="task" placeholder="Task Description" required>
+
+                <label for="who">Who:</label>
+                <input type="text" id="who" placeholder="Responsible Person" required>
+
+                <button type="submit">Add Task</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="notes">
+        <h2>NOTES</h2>
+        <textarea placeholder="To get started, just type here..."></textarea>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+          const taskForm = document.getElementById("add-task-form");
+          const todoBody = document.getElementById("todo-body");
+          const moodIcons = document.querySelectorAll(".mood-icons span");
+  
+          // Load tasks from local storage
+          const loadTasks = () => {
+              const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+              tasks.forEach((task) => addTaskToTable(task));
+          };
+  
+          function saveTasks() {
+    const tasks = [];
+    const rows = todoBody.querySelectorAll("tr");
+    
+    rows.forEach((row) => {
+        // Safely get the checkbox elements
+        const inProgressCheckbox = row.querySelector("input[type='checkbox']");
+        const doneCheckbox = row.querySelector("input[type='checkbox']:nth-of-type(2)");
+        
+        const task = {
+            dueDate: row.querySelector("td:nth-child(1)").innerText,
+            priority: row.querySelector("td:nth-child(2)").innerText,
+            task: row.querySelector("td:nth-child(3)").innerText,
+            who: row.querySelector("td:nth-child(4)").innerText,
+            inProgress: inProgressCheckbox ? inProgressCheckbox.checked : false,
+            done: doneCheckbox ? doneCheckbox.checked : false
+        };
+
+        tasks.push(task);
+    });
+
+    try {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    } catch (error) {
+        alert('Error saving task to localStorage\n\n' + error);
+    }
+}
+
+  
+          // Add task to table
+          const addTaskToTable = (task) => {
+              const tr = document.createElement("tr");
+              tr.innerHTML = `
+                  <td>${task.dueDate}</td>
+                  <td class="priority ${task.priority}">${task.priority}</td>
+                  <td>${task.task}</td>
+                  <td>${task.who}</td>
+                  <td><input type="checkbox" ${task.inProgress ? "checked" : ""}></td>
+                  <td><input type="checkbox" ${task.done ? "checked" : ""}></td>
+                  <td><button class="delete-task">Delete</button></td>
+              `;
+              todoBody.appendChild(tr);
+  
+              tr.querySelector(".delete-task").addEventListener("click", () => {
+                  tr.remove();
+                  saveTasks();
+              });
+  
+              // Save tasks whenever a checkbox state changes
+              const checkboxes = tr.querySelectorAll("input[type='checkbox']");
+              checkboxes.forEach((checkbox) =>
+                  checkbox.addEventListener("change", saveTasks)
+              );
+          };
+  
+          // Add task event listener
+          taskForm.addEventListener("submit", (e) => {
+              e.preventDefault();
+              const dueDate = document.getElementById("due-date").value;
+              const priority = document.getElementById("priority").value;
+              const task = document.getElementById("task").value;
+              const who = document.getElementById("who").value;
+  
+              const newTask = {
+                  dueDate,
+                  priority,
+                  task,
+                  who,
+                  inProgress: false,
+                  done: false
+              };
+  
+              addTaskToTable(newTask);
+              saveTasks();
+  
+              // Clear form fields
+              taskForm.reset();
+          });
+  
+          // Load tasks on page load
+          loadTasks();
+  
+          // Mood Selection and save to local storage
+          const loadMood = () => {
+              const savedMood = localStorage.getItem("selectedMood");
+              if (savedMood) {
+                  moodIcons.forEach((icon) => {
+                      if (icon.id === savedMood) {
+                          icon.classList.add("selected");
+                      }
+                  });
+              }
+          };
+  
+          moodIcons.forEach((icon) => {
+              icon.addEventListener("click", () => {
+                  moodIcons.forEach((icon) => icon.classList.remove("selected"));
+                  icon.classList.add("selected");
+                  const selectedMood = icon.id;
+                  localStorage.setItem("selectedMood", selectedMood); // Save mood to local storage
+                  console.log("Selected Mood: ", selectedMood);
+              });
+          });
+  
+          // Load saved mood on page load
+          loadMood();
+          
+      });
+  </script>
+  
+</body>
+</html>
