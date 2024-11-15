@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -35,7 +35,7 @@ h2{
 .days-of-week {
     position: absolute;
     top: 160px; /* Place above the date */
-    right: 650px;
+    /* right: 650px;
     display: flex;
     gap: 10px;
     background-color: rgba(255, 255, 255, 0.9);
@@ -57,17 +57,17 @@ h2{
 .date {
     position: absolute;
     top: 220px; /* Adjust to sit below the Days of the Week */
-    right: 600px;
+    /* right: 600px;
     font-size: 16px;
     color: #333;
     background-color: #ff7f7f;
     padding: 6px 10px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    width: 400px; */
 }
 /* Style for the Mood section */
-.mood {
+/* .mood {
     position: absolute;
     top: 60px; 
     left: 500x;
@@ -76,7 +76,7 @@ h2{
 
 
 /* Mood Icons styling */
-.mood-icons {
+/* .mood-icons {
     font-size: 1.5em;
     display: flex;
     justify-content: center;
@@ -156,4 +156,4 @@ button:hover {
 
 #completed-list li {
     background: #ffe0e1; 
-}
+} */ 
