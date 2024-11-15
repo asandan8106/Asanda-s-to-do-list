@@ -1,4 +1,4 @@
-Features
+# Features
 
 1. To-Do List Management
    
@@ -83,6 +83,9 @@ arduino
 Copy code
 http://localhost:3001
 
+# Deployment link:
+https://asandan8106.github.io/Asanda-s-to-do-list/public
+
 How to Use
 
 Adding a Task
@@ -127,10 +130,7 @@ Add authentication to allow users to save data across devices.
 
 Include drag-and-drop task reordering.
 
-License
-This project is open-source and available under the MIT License.
-
-Contact
+# Contact
 For questions or contributions, contact:
 
 Name: Asanda Ngwenya
